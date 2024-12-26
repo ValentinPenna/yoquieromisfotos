@@ -1,7 +1,9 @@
-import React from 'react'
+import Products from "../components/primary/Products";
 
 export default function Home() {
   return (
-    <div className='h-screen'>Home</div>
+    <>
+        <Products />
+    </>
   )
 }
