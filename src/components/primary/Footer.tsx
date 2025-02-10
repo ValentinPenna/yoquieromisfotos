@@ -1,5 +1,5 @@
 export default function Footer() {
   return (
-    <div className='bg-primary h-16 w-full flex items-center p-2'>Footer</div>
+    <div className='fixed bottom-0 flex items-center w-full h-16 p-2 mb-0 bg-primary'>Footer</div>
   )
 }
