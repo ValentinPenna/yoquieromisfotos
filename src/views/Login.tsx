@@ -94,6 +94,9 @@ export default function Login() {
 
       const data = await response.json()
       
+      // Guardamos el token en sessionStorage
+      sessionStorage.setItem("token", data.token);
+      
       // Guardamos los datos del usuario en Redux
       dispatch(setUser({
         name: data.name,
