@@ -6,28 +6,20 @@ import banner3 from "../assets/media/3.png"
 import banner4 from "../assets/media/4.png"
 import { useEffect, useState } from "react";
 import { IProduct } from "../utils/interfaceProduct";
-
-const VITE_PUBLIC_API_URL = import.meta.env.VITE_PUBLIC_API_URL;
+import { fetchProducts } from "../utils/dbCalls";
 
 export default function Home() {
   const [products, setProducts] = useState<IProduct[]>([])
   useEffect(()=>{ 
-    const fetchProducts = async () => {
+    const loadProducts = async () => {
       try {
-        const response = await fetch(`${VITE_PUBLIC_API_URL}/products`, {
-        method: 'GET',
-        headers: {
-          'Content-Type': 'application/json'
-
-        }
-        })
-        const data = await response.json()
-        setProducts(data)
+        const data = await fetchProducts();
+        setProducts(data);
       } catch (error) {
-        console.error('Error al obtener productos:', error)
+        console.error('Error al cargar productos:', error);
       }
     }
-    fetchProducts()
+    loadProducts()
   }, [])
   return (
     <>

@@ -6,6 +6,8 @@ import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { setUser } from "./store/slices/userSlice";
 import { decodeToken } from './utils/decodeToken'; // Asegúrate de que la ruta sea correcta
+import Products from './views/Products';
+import ProductsDetail from './views/ProductsDetail';
 
 function App() {
   const dispatch = useDispatch();
@@ -26,6 +28,8 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path='/register' element={<Register/>}/>
         <Route path='/login' element={<Login/>}/>
+        <Route path='/products' element={<Products/>}/>
+        <Route path='/products/:id' element={<ProductsDetail/>}/>
       </Routes>
       </main>
       <Footer />
